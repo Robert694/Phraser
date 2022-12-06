@@ -1,17 +1,8 @@
-# Phraser
- A phrase parsing library
+﻿using Phraser;
 
-Example
-```cs
-using Phraser;
-
-//Initialize phrase parser
 IPhraseParser<string> parser = new PhraseParser<string>();
-//Define where phrases will be loaded from
 IPhraseLoader<string> loader = new PhraseFileNameLoader(Path.Combine(Environment.CurrentDirectory, "Sounds"), new[] { ".wav", ".ogg", ".mp3", ".mid" });
-//Define how a phrase value will be selected
 IPhraseValueSelector<string> selector = new RandomPhraseValueSelector<string>();
-//Load phrases into phrase parser
 parser.LoadPhrases(loader);
 Console.WriteLine($"Phrases: {parser.PhraseCount}");
 
@@ -28,18 +19,3 @@ while (true)
         Console.ResetColor();
     }
 }
-```
-In the above example if the following filepaths existed:
-+ Sounds/hello.mp3
-+ Sounds/hello hello.mp3
-+ Sounds/mika.mp3
-
-Given the input "Hello hello hello Mika cat" the result would be: 
-```
-Phrases: 3
-Input: Hello hello hello Mika cat
-[0..2] 'Hello hello' = hello hello.mp3
-[2..3] 'hello' = hello.mp3
-[3..4] 'Mika' = mika.mp3
-[4..5] 'cat' =
-```
