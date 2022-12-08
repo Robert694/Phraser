@@ -5,7 +5,7 @@ namespace Phraser.Tests
     public class PhraserTests
     {
         [Theory]
-        [InlineData("hello hello hello world", new[] {"hello hello", "hello", "world2"})]
+        [InlineData("hello hello hello world", new[] {"hello hello", "hello", "world"})]
         [InlineData("hello hello test hello world", new[] { "hello hello", null, "hello", "world" })]
         [InlineData("hello world", new[] { "hello", "world" })]
         public void Parse_ShouldBeExpectedResult(string input, string[] expectedResult)
