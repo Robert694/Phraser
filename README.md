@@ -1,6 +1,7 @@
-![dotnet build and test](https://github.com/Robert694/Phraser/actions/workflows/dotnet_package.yml/badge.svg)
 # Phraser
- A phrase parsing library
+A phrase parsing library
+
+![Build status](https://github.com/Robert694/Phraser/actions/workflows/dotnet_package.yml/badge.svg)
 
 Example
 ```cs
