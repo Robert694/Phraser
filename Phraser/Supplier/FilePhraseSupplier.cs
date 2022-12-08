@@ -1,11 +1,13 @@
-﻿namespace Phraser
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Phraser
 {
     /// <summary>
     /// Loads phrases from text file
     /// </summary>
-    public class PhraseFileSupplier : IPhraseSupplier<string>
+    public class FilePhraseSupplier : IPhraseSupplier<string>
     {
-        public PhraseFileSupplier(string filePath)
+        public FilePhraseSupplier(string filePath)
         {
             FilePath = filePath;
         }

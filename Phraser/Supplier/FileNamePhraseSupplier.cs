@@ -3,9 +3,9 @@
     /// <summary>
     /// Loads filesnames as phreases and uses filepath as value
     /// </summary>
-    public class PhraseFileNameSupplier : IPhraseSupplier<string>
+    public class FileNamePhraseSupplier : IPhraseSupplier<string>
     {
-        public PhraseFileNameSupplier(string directoryPath, string[]? allowedFileTypes = null, bool recursive = true)
+        public FileNamePhraseSupplier(string directoryPath, string[]? allowedFileTypes = null, bool recursive = true)
         {
             DirectoryPath = directoryPath;
             AllowedFileTypes = allowedFileTypes;
