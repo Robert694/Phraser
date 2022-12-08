@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phraser", "Phraser\Phraser.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhraserExample", "PhraserExample\PhraserExample.csproj", "{A5CF7B2E-8C1E-489C-8B6F-31642223D0EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phraser.Tests", "Phraser.Tests\Phraser.Tests.csproj", "{F82E7590-C06A-4386-9F13-0C9FA91DF5ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A5CF7B2E-8C1E-489C-8B6F-31642223D0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5CF7B2E-8C1E-489C-8B6F-31642223D0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5CF7B2E-8C1E-489C-8B6F-31642223D0EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F82E7590-C06A-4386-9F13-0C9FA91DF5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F82E7590-C06A-4386-9F13-0C9FA91DF5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F82E7590-C06A-4386-9F13-0C9FA91DF5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F82E7590-C06A-4386-9F13-0C9FA91DF5ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
