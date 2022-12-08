@@ -7,8 +7,8 @@ using Phraser;
 
 //Initialize phrase parser
 IPhraseParser<string> parser = new PhraseParser<string>();
-//Define where phrases will be loaded from
-IPhraseLoader<string> loader = new PhraseFileNameLoader(Path.Combine(Environment.CurrentDirectory, "Sounds"), new[] { ".wav", ".ogg", ".mp3", ".mid" });
+//Define where phrases will be supplied from
+IPhraseSupplier<string> loader = new PhraseFileNameSupplier(Path.Combine(Environment.CurrentDirectory, "Sounds"), new[] { ".wav", ".ogg", ".mp3", ".mid" });
 //Define how a phrase value will be selected
 IPhraseValueSelector<string> selector = new RandomPhraseValueSelector<string>();
 //Load phrases into phrase parser

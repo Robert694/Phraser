@@ -1,8 +1,8 @@
 ﻿namespace Phraser
 {
-    public class PhraseLoaderData<T>
+    public class PhraseSupplierData<T>
     {
-        public PhraseLoaderData(string[] phrase, T value)
+        public PhraseSupplierData(string[] phrase, T value)
         {
             Phrase = phrase;
             Value = value;

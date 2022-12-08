@@ -11,7 +11,7 @@ namespace Phraser
         {
             return new Dictionary<string, PhraseWordData<T>>(StringComparer.OrdinalIgnoreCase);
         }
-        public void LoadPhrases(IPhraseLoader<T> loader)
+        public void LoadPhrases(IPhraseSupplier<T> loader)
         {
             var wordDatas = CreateDictionary();
             PhraseCount = 0;
