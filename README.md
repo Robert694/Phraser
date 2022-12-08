@@ -1,3 +1,4 @@
+![dotnet build and test](https://github.com/Robert694/Phraser/actions/workflows/dotnet_package.yml/badge.svg)
 # Phraser
  A phrase parsing library
 
