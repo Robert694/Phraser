@@ -6,11 +6,6 @@ namespace Phraser
     {
         public Dictionary<string, PhraseWordData<T>> WordDatas { get; private set; }
         public int PhraseCount { get; private set; }
-        
-        private static Dictionary<string, PhraseWordData<T>> CreateDictionary()
-        {
-            return new Dictionary<string, PhraseWordData<T>>(StringComparer.OrdinalIgnoreCase);
-        }
         public void LoadPhrases(IPhraseSupplier<T> loader)
         {
             var wordDatas = CreateDictionary();
@@ -70,6 +65,8 @@ namespace Phraser
             }
         }
 
+        private static Dictionary<string, PhraseWordData<T>> CreateDictionary() => new(StringComparer.OrdinalIgnoreCase);
+
         public static string[] Sanitize(string[] str)
         {
             Regex rgx = new Regex("[^a-zA-Z0-9 -]");
@@ -77,7 +74,6 @@ namespace Phraser
             return rgx.Replace(input, "").Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);//replaces all non "A-z0-9 -" with empty - also removes empties
         }
 
-        //TESTING OPTIMIZING
         /// <summary>
         /// Finds next phrase starting at given startIndex
         /// </summary>
@@ -126,15 +122,7 @@ namespace Phraser
             return returnIndex;
         }
 
-
-        //WORKING CODE
-        ///// <summary>
-        ///// Finds next phrase starting at given startIndex
-        ///// </summary>
-        ///// <param name="input"></param>
-        ///// <param name="startIndex"></param>
-        ///// <param name="data"></param>
-        ///// <returns></returns>
+        //original working code
         //private static int GetNext(Dictionary<string, PhraseWordData<T>> WordDatas, string[] input, int startIndex, out PhraseWordData<T>? data)
         //{
         //    data = null;
