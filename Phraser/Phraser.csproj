@@ -11,7 +11,7 @@
     <Copyright>https://github.com/Robert694/Phraser</Copyright>
     <PackageProjectUrl>https://github.com/Robert694/Phraser</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Robert694/Phraser</RepositoryUrl>
-    <Version>1.0.1</Version>
+    <Version>$(VersionPrefix)</Version>
   </PropertyGroup>
 
 </Project>
