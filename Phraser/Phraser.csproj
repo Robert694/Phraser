@@ -5,6 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>annotations</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Phraser</Title>
+    <Company>Robert694</Company>
+    <Description>A phrase parsing library</Description>
+    <Copyright>https://github.com/Robert694/Phraser</Copyright>
+    <PackageProjectUrl>https://github.com/Robert694/Phraser</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Robert694/Phraser</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
