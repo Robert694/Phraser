@@ -122,6 +122,59 @@ namespace Phraser
             return returnIndex;
         }
 
+        //slower but don't know why - less IL though
+        //private static int GetNext(Dictionary<string, PhraseWordData<T>> WordDatas, string[] input, int startIndex, out PhraseWordData<T>? data)
+        //{
+        //    data = null;
+        //    int returnIndex = startIndex;
+        //    if (!WordDatas.TryGetValue(input[startIndex], out var current)) return returnIndex;
+        //    if (current.Values != null) data = current;
+        //    for (int i = startIndex + 1; i < input.Length; i++)
+        //    {
+        //        if (current.Next == null || !current.Next.TryGetValue(input[i], out current)) return returnIndex;
+        //        if (current.Values != null)
+        //        {
+        //            returnIndex = i;
+        //            data = current;
+        //        }
+        //    }
+        //    return returnIndex;
+        //}
+
+        //slower but don't know why
+        //private static int GetNext(Dictionary<string, PhraseWordData<T>> WordDatas, string[] input, int startIndex, out PhraseWordData<T>? data)
+        //{
+        //    data = null;
+        //    int returnIndex = startIndex;
+        //    if (WordDatas.TryGetValue(input[startIndex], out var current))
+        //    {
+        //        if (current.Values != null)
+        //        {
+        //            data = current;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return returnIndex;
+        //    }
+        //    for (int i = startIndex + 1; i < input.Length; i++)
+        //    {
+        //        if (current.Next != null && current.Next.TryGetValue(input[i], out current))
+        //        {
+        //            if (current.Values != null)
+        //            {
+        //                returnIndex = i;
+        //                data = current;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            return returnIndex;
+        //        }
+        //    }
+        //    return returnIndex;
+        //}
+
         //original working code
         //private static int GetNext(Dictionary<string, PhraseWordData<T>> WordDatas, string[] input, int startIndex, out PhraseWordData<T>? data)
         //{
