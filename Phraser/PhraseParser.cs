@@ -8,7 +8,7 @@ namespace Phraser
         public int PhraseCount { get; private set; }
         public void LoadPhrases(IPhraseSupplier<T> loader)
         {
-            var wordDatas = CreateDictionary();
+            var wordDatas = CreateDictionary();//initialize root node
             PhraseCount = 0;
             foreach (var phrase in loader.GetPhrases())
             {
@@ -18,33 +18,25 @@ namespace Phraser
                 for (int i = 0; i < phrase.Phrase.Length; i++)
                 {
                     var word = phrase.Phrase[i];
-                    if (current.TryGetValue(word, out var data))
+                    if (!current.TryGetValue(word, out var data))//word doesn't exist - add
                     {
-                        if (i != last)
-                        {
-                            data.Next ??= CreateDictionary();
-                        }
-                        current = data.Next;
-                        if (i == last)
-                        {
-                            data.Values ??= new List<T>();
-                            data.Values.Add(phrase.Value);
-                        }
-                    }
-                    else
-                    {
-                        var temp = new PhraseWordData<T>();
-                        if (i == last)
-                        {
-                            temp.Values ??= new List<T>();
-                            temp.Values.Add(phrase.Value);
-                        }
-                        else
-                        {
-                            temp.Next ??= CreateDictionary();
-                        }
+                        var temp = i != last ? 
+                            new PhraseWordData<T>() { Next = CreateDictionary() } : //not last in phrase - setup for next word
+                            new PhraseWordData<T>() { Values = new List<T> { phrase.Value } }; //last word in phrase - add value
                         current.Add(word, temp);
                         current = temp.Next;
+                    }
+                    else //word exists
+                    {
+                        if (i != last) //not last in phrase - setup for next word
+                        {
+                            data.Next ??= CreateDictionary();
+                            current = data.Next;
+                        }
+                        else //last word in phrase - add value
+                        {
+                            data.AddValue(phrase.Value);
+                        }
                     }
                 }
             }
