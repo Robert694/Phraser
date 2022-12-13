@@ -51,7 +51,7 @@ namespace Phraser.Tests
         [InlineData("hello hello      .....       hello world!!!", new[] { "hello", "hello", "hello", "world" })]
         public void Sanitize_ShouldBeExpectedResult(string input, string[] expectedResult)
         {
-            PhraseParser<string>.Sanitize(input.Split())
+            PhraseParser.Sanitize(input.Split())
                 .Should()
                 .Equal(expectedResult);
         }
