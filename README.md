@@ -22,7 +22,7 @@ while (true)
     Console.Write("Input: ");
     var line = Console.ReadLine();
     if (line == null) continue;
-    var input = PhraseParser<string>.Sanitize(line.Split());
+    var input = PhraseParser.Sanitize(line.Split());
     foreach (var phrase in parser.Parse(input, selector))
     {
         if (phrase.Found) Console.ForegroundColor = ConsoleColor.Green; else Console.ForegroundColor = ConsoleColor.Red;

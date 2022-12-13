@@ -22,7 +22,7 @@
             foreach (string file in Directory.EnumerateFiles(DirectoryPath, "*.*", Recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
             {
                 if (AllowedFileTypes != null && !AllowedFileTypes.Contains(Path.GetExtension(file).ToLower())) continue;//Skip invalid filetype
-                var phrase = PhraseParser<string>.Sanitize(Path.GetFileNameWithoutExtension(file).ToUpper().Split(' '));
+                var phrase = PhraseParser.Sanitize(Path.GetFileNameWithoutExtension(file).ToUpper().Split(' '));
                 if (phrase.Length == 0) continue; 
                 yield return new PhraseSupplierData<string>(phrase, file);
             }

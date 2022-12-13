@@ -20,7 +20,7 @@ namespace Phraser
             foreach (string line in File.ReadLines(FilePath))
             {
                 if (string.IsNullOrWhiteSpace(line)) continue;
-                var phrase = PhraseParser<string>.Sanitize(Path.GetFileNameWithoutExtension(line).ToUpper().Split(' '));
+                var phrase = PhraseParser.Sanitize(Path.GetFileNameWithoutExtension(line).ToUpper().Split(' '));
                 if (phrase.Length == 0) continue;
                 yield return new PhraseSupplierData<string>(phrase, line + ".mp3");
             }

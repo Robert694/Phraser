@@ -59,12 +59,6 @@ namespace Phraser
 
         private static Dictionary<string, PhraseWordData<T>> CreateDictionary() => new(StringComparer.OrdinalIgnoreCase);
 
-        public static string[] Sanitize(string[] str)
-        {
-            Regex rgx = new Regex("[^a-zA-Z0-9 -]");
-            var input = string.Join(' ', str).Replace("_", " ");//replaces underscores with spaces
-            return rgx.Replace(input, "").Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);//replaces all non "A-z0-9 -" with empty - also removes empties
-        }
 
         /// <summary>
         /// Finds next phrase starting at given startIndex
@@ -132,5 +126,15 @@ namespace Phraser
         //    }
         //    return returnIndex;
         //}
+    }
+
+    public static class PhraseParser
+    {
+        public static string[] Sanitize(string[] str)
+        {
+            Regex rgx = new Regex("[^a-zA-Z0-9 -]");
+            var input = string.Join(' ', str).Replace("_", " ");//replaces underscores with spaces
+            return rgx.Replace(input, "").Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);//replaces all non "A-z0-9 -" with empty - also removes empties
+        }
     }
 }
