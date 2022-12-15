@@ -63,6 +63,7 @@ namespace Phraser
         /// <summary>
         /// Finds next phrase starting at given startIndex
         /// </summary>
+        /// <param name="WordDatas"></param>
         /// <param name="input"></param>
         /// <param name="startIndex"></param>
         /// <param name="data"></param>
@@ -70,64 +71,68 @@ namespace Phraser
         private static int GetNext(Dictionary<string, PhraseWordData<T>> WordDatas, string[] input, int startIndex, out PhraseWordData<T>? data)
         {
             data = null;
-            PhraseWordData<T>? current = null;
             int returnIndex = startIndex;
-            for (int i = startIndex; i < input.Length; i++)
+            if (!WordDatas.TryGetValue(input[startIndex], out var current)) return returnIndex;
+            if (current.Values != null) data = current;
+            for (int i = startIndex + 1; i < input.Length; i++)
             {
-                if (current == null)
+                if (current.Next == null || !current.Next.TryGetValue(input[i], out current)) return returnIndex;
+                if (current.Values != null)
                 {
-                    if (WordDatas.TryGetValue(input[i], out current))
-                    {
-                        if (current.Values != null)
-                        {
-                            returnIndex = i;
-                            data = current;
-                        }
-                    }
-                    else
-                    {
-                        return returnIndex;
-                    }
-                }
-                else
-                {
-                    if (current.Next != null && current.Next.TryGetValue(input[i], out current))
-                    {
-                        if (current.Values != null)
-                        {
-                            returnIndex = i;
-                            data = current;
-                        }
-                    }
-                    else
-                    {
-                        return returnIndex;
-                    }
+                    returnIndex = i;
+                    data = current;
                 }
             }
             return returnIndex;
         }
 
-        //slower but don't know why - less IL though
+        //old less condensed version
         //private static int GetNext(Dictionary<string, PhraseWordData<T>> WordDatas, string[] input, int startIndex, out PhraseWordData<T>? data)
         //{
         //    data = null;
+        //    PhraseWordData<T>? current = null;
         //    int returnIndex = startIndex;
-        //    if (!WordDatas.TryGetValue(input[startIndex], out var current)) return returnIndex;
-        //    if (current.Values != null) data = current;
-        //    for (int i = startIndex + 1; i < input.Length; i++)
+        //    for (int i = startIndex; i < input.Length; i++)
         //    {
-        //        if (current.Next == null || !current.Next.TryGetValue(input[i], out current)) return returnIndex;
-        //        if (current.Values != null)
+        //        if (current == null)
         //        {
-        //            returnIndex = i;
-        //            data = current;
+        //            if (WordDatas.TryGetValue(input[i], out current))
+        //            {
+        //                if (current.Values != null)
+        //                {
+        //                    returnIndex = i;
+        //                    data = current;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                return returnIndex;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (current.Next != null && current.Next.TryGetValue(input[i], out current))
+        //            {
+        //                if (current.Values != null)
+        //                {
+        //                    returnIndex = i;
+        //                    data = current;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                return returnIndex;
+        //            }
         //        }
         //    }
         //    return returnIndex;
         //}
     }
 
+
+    /// <summary>
+    /// Class to help Sanitize input for phrase parsing
+    /// </summary>
     public static class PhraseParser
     {
         public static string[] Sanitize(string[] str)
