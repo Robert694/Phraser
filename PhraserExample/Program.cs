@@ -14,7 +14,7 @@ while (true)
     var input = PhraseParser.Sanitize(line.Split());
     foreach (var phrase in parser.Parse(input, selector))
     {
-        if (phrase.Found) Console.ForegroundColor = ConsoleColor.Green; else Console.ForegroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = phrase.Found ? ConsoleColor.Green : ConsoleColor.Red;
         Console.WriteLine($"[{phrase.Range}] '{string.Join(" ", input[phrase.Range])}' = {Path.GetFileName(phrase.Value)}");
         Console.ResetColor();
     }
