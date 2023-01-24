@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phraser", "Phraser\Phraser.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhraserExample", "PhraserExample\PhraserExample.csproj", "{A5CF7B2E-8C1E-489C-8B6F-31642223D0EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phraser.Tests", "Phraser.Tests\Phraser.Tests.csproj", "{F82E7590-C06A-4386-9F13-0C9FA91DF5ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phraser.Tests", "Phraser.Tests\Phraser.Tests.csproj", "{F82E7590-C06A-4386-9F13-0C9FA91DF5ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
