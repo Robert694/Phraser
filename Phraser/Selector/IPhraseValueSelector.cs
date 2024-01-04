@@ -7,6 +7,6 @@
         /// </summary>
         /// <param name="values"></param>
         /// <returns></returns>
-        public T Select(List<T> values);
+        public T Select(IList<T> values);
     }
 }

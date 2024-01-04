@@ -1,7 +1,7 @@
 ﻿using Phraser;
 
 IPhraseParser<string> parser = new PhraseParser<string>();
-IPhraseSupplier<string> loader = new FileNamePhraseSupplier(Path.Combine(Environment.CurrentDirectory, "Sounds"), new[] { ".wav", ".ogg", ".mp3", ".mid" });
+IPhraseSupplier<string> loader = new FileNamePhraseSupplier(Path.Combine(Environment.CurrentDirectory, "Sounds"), [".wav", ".ogg", ".mp3", ".mid"]);
 IPhraseValueSelector<string> selector = new RandomPhraseValueSelector<string>();
 parser.LoadPhrases(loader);
 Console.WriteLine($"Phrases: {parser.PhraseCount}");

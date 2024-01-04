@@ -2,7 +2,7 @@
 {
     public class FirstPhraseValueSelector<T> : IPhraseValueSelector<T>
     {
-        public T Select(List<T> values)
+        public T Select(IList<T> values)
         {
             return values[0];
         }

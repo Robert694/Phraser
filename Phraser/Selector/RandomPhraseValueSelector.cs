@@ -14,7 +14,12 @@
 
         public Random Rnd { get; }
 
-        public T Select(List<T> values)
+        /// <summary>
+        /// Selects item from values
+        /// </summary>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public T Select(IList<T> values)
         {
             return values[Rnd.Next(values.Count)];
         }
